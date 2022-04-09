@@ -41,11 +41,37 @@ body {
     background-color: var(--colorBackground);
     height: 100vh;
     width: 100vw;
-    overflow-y: hidden;
+    overflow-x: hidden;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+}
+
+header, .text-section {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-button {
+    border-radius: 4px;
+    background-color: var(--green);  
+    font-family: inherit;
+    font-weight: bold;
+    border: 0;
+    padding: 10px 30px;
+    margin-top: 10px;
+    height: 50px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--white);
+    display: none;
+}
+
+.reset-button:hover {
+    background-color: var(--darkendGreen);
 }
 
 /* tiles */
@@ -113,7 +139,7 @@ body {
     margin-bottom: 8px;
 }
 
-button {
+.keyboard-button {
     font-family: inherit;
     font-weight: bold;
     border: 0;
@@ -131,10 +157,22 @@ button {
     text-transform: uppercase;
 }
 
-button[data-state="disabled"] {
-    background-color: var(--color-tone-3) !important;
-    color: var(--color-tone-2) !important;
+.keyboard-button[data-disabled="true"] {
+    background-color: var(--color-tone-3);
+    color: var(--color-tone-2);
     cursor: default;
+}
+
+.keyboard-button[data-state="used"] {
+    background-color: var(--color-tone-3);
+}
+
+.keyboard-button[data-state="correctKey"] {
+    background-color: var(--darkendGreen);
+}
+
+.keyboard-button[data-state="wrongKey"] {
+    background-color: var(--darkendYellow);
 }
 
 .spacer-half {
